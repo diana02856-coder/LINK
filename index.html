@@ -143,21 +143,91 @@ body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var
 <!-- Meta Pixel (Day 35에 여기에 붙이기) -->
 <!-- Microsoft Clarity (Day 38에 여기에 붙이기) -->
 <!-- Schema JSON-LD (Day 29) -->
+<style id="site-refresh">
+/* Price section: editorial, warm neutral palette */
+.tube{background:#eee8de;padding:92px 0 84px;margin:0;color:#27231f}
+.price-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:8vw;align-items:start}
+.price-intro{position:sticky;top:110px;padding-top:26px}
+.price-intro .eb{letter-spacing:.18em;color:#92765a}
+.price-title{font-family:"Cormorant Garamond","Pretendard Variable",serif;font-size:clamp(42px,5vw,70px);line-height:1.42;font-weight:400;letter-spacing:-.04em;margin:32px 0}
+.price-intro p{font-size:14px;line-height:2;color:#746c63}
+.price-intro small{display:block;margin-top:48px;max-width:440px;color:#857b70;line-height:1.9;font-size:11px}
+.price-list{border-top:1px solid #cfc4b7}
+.price-row{min-height:124px;border-bottom:1px solid #cfc4b7;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
+.price-row>div:first-child small{font-family:"Cormorant Garamond",serif;letter-spacing:.15em;color:#9b7f61;font-size:10px}
+.price-row h3{font-size:18px;font-weight:500;margin:5px 0}
+.price-row p{font-size:11px;color:#8b8175;margin:3px 0 0}
+.price-amount{text-align:right;white-space:nowrap}
+.price-amount strong{font-family:"Cormorant Garamond",serif;font-size:clamp(19px,2vw,27px);font-weight:500;letter-spacing:.01em}
+.price-amount span{display:block;color:#8b8175;font-size:10px;margin-top:2px}
+.price-foot{display:flex;gap:18px;align-items:center;padding:22px 0;color:#8b8175}
+.price-foot>span{font-size:28px;color:#a98159}
+.price-foot p{font-size:11px;line-height:1.9;margin:0}
+/* Clickable hero navigation */
+.mv .list li{opacity:.72;transition:opacity .2s,transform .2s}
+.mv .list li:hover{opacity:1;transform:translateX(4px)}
+.mv .list a{color:inherit;text-decoration:none;display:inline-block;padding:3px 2px;cursor:pointer}
+.mv .list a:focus-visible,.hd a:focus-visible,.hd button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+/* KR / ENG */
+.hd .lang{font:inherit;font-size:11px;color:#fff;background:rgba(0,0,0,.12);cursor:pointer;min-width:60px}
+@media(max-width:860px){.hd .lang{display:inline-flex;margin-left:12px;padding:5px 11px}.hd nav{display:none}}
+/* Fixed vertical social shortcuts */
+.float{position:fixed;right:24px;bottom:26px;z-index:40;display:flex;flex-direction:column;gap:10px}
+.float a{width:48px;height:48px;border:1px solid rgba(2,70,66,.15);box-shadow:0 4px 18px #0002;background:#f8f6f2;color:#174c47;text-decoration:none;transition:transform .2s,background .2s}
+.float a:hover{transform:translateY(-3px);background:#e6ded1}
+.float a svg{width:21px;height:21px;display:block}
+.float a .naver-n{font-weight:800;font-size:16px}
+/* Reviews carousel */
+.rev{max-width:none;padding:104px max(40px,calc((100vw - 1280px)/2)) 84px;text-align:left}
+.review-heading{display:flex;align-items:end;justify-content:space-between;gap:24px}
+.review-heading .ttl{font-size:28px}
+.review-source{font-size:12px;color:#876d53;border-bottom:1px solid #b9a48b;padding-bottom:5px;white-space:nowrap}
+.review-carousel{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;gap:14px;align-items:center;margin-top:34px}
+.review-viewport{overflow:hidden}
+.review-track{display:flex;gap:16px;transition:scroll-left .4s ease;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;scroll-snap-type:x mandatory}
+.review-track::-webkit-scrollbar{display:none}
+.review-card{flex:0 0 calc((100% - 48px)/4);min-width:0;background:#f1efeb;border:0;padding:0;text-align:left;cursor:pointer;scroll-snap-align:start;color:#292724;transition:transform .2s,box-shadow .2s}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px #2c241514}
+.review-thumb{height:190px;background:linear-gradient(135deg,#d5cec1,#aeb6ab);position:relative;overflow:hidden}
+.review-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.review-thumb.no-photo{display:grid;place-items:center;color:#fff;font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.12em}
+.review-card-copy{padding:17px 18px 20px;min-height:150px}
+.review-card-copy em{font-family:"Cormorant Garamond",serif;font-style:normal;font-size:17px;letter-spacing:.1em;color:#9a8063}
+.review-card-copy h3{font-size:15px;font-weight:500;margin:7px 0}
+.review-card-copy p{font-size:12px;line-height:1.8;color:#6f6961;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.review-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #c9beb1;background:transparent;color:#50463c;font-size:25px;cursor:pointer}
+.review-arrow:hover{background:#eee8de}
+.review-caption{display:flex;justify-content:space-between;gap:16px;margin-top:16px;color:#8e8579;font-size:11px}
+.review-modal{position:fixed;inset:0;z-index:100;background:#151614c9;display:none;align-items:center;justify-content:center;padding:24px}
+.review-modal.open{display:flex}
+.review-modal-box{width:min(900px,100%);max-height:90vh;overflow:auto;background:#f7f5f1;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.review-modal-media{min-height:440px;background:#ded8ce}
+.review-modal-media img{width:100%;height:100%;max-height:72vh;object-fit:cover;display:block}
+.review-modal-media.no-photo{display:grid;place-items:center;font:26px "Cormorant Garamond",serif;color:#fff}
+.review-modal-copy{padding:56px 38px 38px}
+.review-modal-copy h2{font-size:25px;font-weight:500;margin:8px 0 18px}
+.review-modal-copy p{font-size:14px;line-height:2;color:#625c54}
+.review-modal-copy .more{color:var(--ink);text-decoration:none}
+.review-close{position:absolute;right:12px;top:10px;width:40px;height:40px;border:0;background:transparent;font-size:30px;cursor:pointer;z-index:2}
+@media(max-width:980px){.price-layout{grid-template-columns:.8fr 1.2fr;gap:36px}.review-card{flex-basis:calc((100% - 32px)/3)}.review-thumb{height:170px}}
+@media(max-width:700px){.tube{padding:60px 0}.price-layout{grid-template-columns:1fr;gap:36px}.price-intro{position:static;padding:0}.price-title{font-size:44px;margin:18px 0}.price-intro small{margin-top:20px}.price-row{min-height:100px}.price-row h3{font-size:16px}.price-amount strong{font-size:19px}.rev{padding:72px 18px}.review-heading{align-items:start;flex-direction:column}.review-heading .ttl{font-size:23px}.review-carousel{grid-template-columns:34px minmax(0,1fr) 34px;gap:6px}.review-arrow{width:32px;height:32px}.review-card{flex-basis:calc((100% - 12px)/2)}.review-thumb{height:145px}.review-card-copy{padding:13px;min-height:158px}.review-caption{font-size:10px}.review-modal-box{grid-template-columns:1fr;max-height:92vh}.review-modal-media{min-height:230px;height:38vh}.review-modal-media img{max-height:38vh}.review-modal-copy{padding:28px 22px}.float{right:12px;bottom:14px;gap:8px}.float a{width:42px;height:42px}}
+@media(prefers-reduced-motion:reduce){.review-track{scroll-behavior:auto}.review-card,.float a{transition:none}}
+</style>
 </head>
 <body>
 <header class="hd"><div class="in">
   <a class="logo" href="./"><b>L</b>LINK SPACE</a><span class="tag">안암역 인근 · 최대 55명 다목적 대여공간</span>
   <span class="bars" aria-hidden="true"></span>
-  <nav><a href="#space">공간 소개</a><a href="#theme">테마 공간</a><a href="#price">이용 요금</a><a href="#map">오시는 길</a></nav>
-  <a class="lang" href="#apply" id="cta-top">예약 문의</a>
+  <nav><a href="#space" data-ko="공간 소개" data-en="About">공간 소개</a><a href="#theme" data-ko="테마 공간" data-en="Spaces">테마 공간</a><a href="#price" data-ko="이용 요금" data-en="Pricing">이용 요금</a><a href="#map" data-ko="오시는 길" data-en="Location">오시는 길</a></nav>
+  <button class="lang" type="button" id="lang-toggle" aria-label="Switch language">ENG</button>
 </div></header>
 
 <main>
 <section class="mv">
   <div class="ph "><span><span class="todo">히어로: 실제 공간 사진 (대리석 인테리어·380인치 스크린)</span></span></div>
-  <ul class="list"><li>모임 · 세미나, 회의</li><li>상영 · 관람, 380인치 스크린으로 영화</li><li>촬영 · 파티, MV·유튜브·제품 촬영</li><li>380인치 스크린, 노래방·PC</li></ul>
+  <ul class="list"><li><a href="#theme" data-ko="모임 · 세미나, 회의" data-en="Meetings · Seminars">모임 · 세미나, 회의</a></li><li><a href="#theme" data-ko="상영 · 관람, 380인치 스크린" data-en="Screenings · 380-inch screen">상영 · 관람, 380인치 스크린</a></li><li><a href="#theme" data-ko="촬영 · 파티, 콘텐츠 제작" data-en="Filming · Parties · Content">촬영 · 파티, 콘텐츠 제작</a></li><li><a href="#price" data-ko="요금과 이용 시간 보기" data-en="View prices and hours">요금과 이용 시간 보기</a></li></ul>
   <div class="copy"><h1>LINK SPACE,<br>MAKE YOUR MOMENT</h1><p>1차 끝나고, 또 장소 찾나요? 안암에서 최대 55명이 모임·상영·게임·촬영을 한곳에서.</p></div>
-  <div class="float"><a href="#apply" id="cta-main" aria-label="예약 문의하기">예약</a><a href="#map" aria-label="오시는 길">⌖</a></div>
+  <div class="float" aria-label="예약 및 위치 바로가기"><a href="#apply" id="cta-main" aria-label="예약 문의하기" data-ko="예약" data-en="Book">예약</a><a href="#map" aria-label="오시는 길">⌖</a></div>
   <div class="badge">LS</div>
 </section>
 
@@ -204,25 +274,39 @@ body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var
 </section>
 
 <section class="tube" id="price">
-  <div class="in grid">
-    <div>
-      <span class="eb">Price</span>
-      <h2 class="ttl">궁금했던 <span class="acc">'요금'</span>, 알고 싶었던 <span class="acc">'시간'</span><br>LINK SPACE 이용에 대한 모든 것</h2>
-      <div class="price-cards"><div><b>시간제</b><span>월~목 시간당 30,000원 · 금~일 35,000원 (최소 2시간)</span></div><div><b>All DAY 10:00~16:00</b><span>월~목 180,000원 · 금~일 210,000원</span></div><div><b>Half NIGHT 18:00~24:00</b><span>월~목 180,000원 · 금~일 210,000원</span></div><div><b>All NIGHT 19:00~다음날 09:00</b><span>월~목 300,000원 · 금~일 330,000원</span></div><div><b>24시간</b><span>월~목 470,000원 · 금~일 490,000원</span></div></div>
+  <div class="in price-layout">
+    <div class="price-intro">
+      <span class="eb">04 / PLAN YOUR MOMENT</span>
+      <h2 class="price-title" data-ko="낮부터 밤까지,<br>함께하는 시간." data-en="From day to night,<br>time well spent.">낮부터 밤까지,<br>함께하는 시간.</h2>
+      <p data-ko="잠깐의 만남부터 밤새 이어지는 이야기까지.<br>모임에 맞는 이용 시간을 선택하세요." data-en="From a quick meetup to a night together.<br>Choose the time that fits your gathering.">잠깐의 만남부터 밤새 이어지는 이야기까지.<br>모임에 맞는 이용 시간을 선택하세요.</p>
+      <small data-ko="요일·날짜·인원에 따라 최종 요금이 달라질 수 있습니다. 예약 전 확인해 주세요." data-en="Final rates may vary by day, date, and group size. Please confirm when booking.">요일·날짜·인원에 따라 최종 요금이 달라질 수 있습니다. 예약 전 확인해 주세요.</small>
     </div>
-    <div>
-      <span class="eb">Gallery</span>
-      <h2 class="ttl">공간 둘러보기</h2>
-      <div class="gal" style="margin-top:24px"><div><div class="ph "><span>사진</span></div><span>메인 홀</span></div><div><div class="ph "><span>사진</span></div><span>스크린</span></div><div><div class="ph "><span>사진</span></div><span>주방</span></div><div><div class="ph "><span>사진</span></div><span>거울 벽</span></div><div><div class="ph "><span>사진</span></div><span>노래방·PC</span></div><div><div class="ph "><span>사진</span></div><span>라운지</span></div></div>
+    <div class="price-list" aria-label="이용 요금">
+      <article class="price-row"><div><small>HOURLY</small><h3 data-ko="시간제" data-en="Hourly">시간제</h3><p data-ko="최소 2시간 · 시간 사전 조율" data-en="2-hour minimum · booking required">최소 2시간 · 시간 사전 조율</p></div><div class="price-amount"><strong>30,000–35,000</strong><span data-ko="원 / 시간" data-en="KRW / hour">원 / 시간</span></div></article>
+      <article class="price-row"><div><small>ALL DAY</small><h3 data-ko="데이 패키지" data-en="Day package">데이 패키지</h3><p>10:00–16:00</p></div><div class="price-amount"><strong>180,000–210,000</strong><span data-ko="원" data-en="KRW">원</span></div></article>
+      <article class="price-row"><div><small>HALF NIGHT</small><h3 data-ko="하프나잇" data-en="Half night">하프나잇</h3><p>18:00–24:00</p></div><div class="price-amount"><strong>180,000–210,000</strong><span data-ko="원" data-en="KRW">원</span></div></article>
+      <article class="price-row"><div><small>ALL NIGHT</small><h3 data-ko="올나잇" data-en="All night">올나잇</h3><p>19:00–다음날 09:00</p></div><div class="price-amount"><strong>300,000–330,000</strong><span data-ko="원" data-en="KRW">원</span></div></article>
+      <article class="price-row"><div><small>24 HOURS</small><h3 data-ko="24시간 대관" data-en="24-hour rental">24시간 대관</h3><p data-ko="시작·종료 시간 예약 시 확인" data-en="Confirm start and end times when booking">시작·종료 시간 예약 시 확인</p></div><div class="price-amount"><strong>470,000–490,000</strong><span data-ko="원" data-en="KRW">원</span></div></article>
+      <div class="price-foot"><span aria-hidden="true">＋</span><p data-ko="표기 금액은 월–목 / 금–일 기준입니다.<br>추가 인원·시간 및 예약 조건은 문의 시 확인해 주세요." data-en="Rates are listed for Mon–Thu / Fri–Sun.<br>Please confirm extra guests, hours, and booking terms when enquiring.">표기 금액은 월–목 / 금–일 기준입니다.<br>추가 인원·시간 및 예약 조건은 문의 시 확인해 주세요.</p></div>
     </div>
   </div>
 </section>
 
-<section class="rev in">
-  <span class="eb">LINK SPACE 이용후기</span>
-  <h2 class="ttl">모임을 바꾼 LINK SPACE의 힘<br>한 글자씩 눌러쓴 <span class="acc">진심 담은 이용 후기</span>를 소개합니다</h2>
-  <div class="row"><div class="card"><div><em>REVIEW</em><span class="todo">세미나 후기</span><br><small>출처: 네이버 플레이스</small></div><i><div class="ph "><span></span></div></i></div><div class="card"><div><em>REVIEW</em><span class="todo">단체 관람 후기</span><br><small>출처: 네이버 플레이스</small></div><i><div class="ph "><span></span></div></i></div><div class="card"><div><em>REVIEW</em><span class="todo">파티 후기</span><br><small>출처: 네이버 플레이스</small></div><i><div class="ph "><span></span></div></i></div><div class="card"><div><em>REVIEW</em><span class="todo">촬영 후기</span><br><small>출처: 네이버 플레이스</small></div><i><div class="ph "><span></span></div></i></div></div>
+<section class="rev in" id="reviews">
+  <div class="review-heading">
+    <div><span class="eb">LINK SPACE · NAVER PLACE</span><h2 class="ttl" data-ko="모임을 바꾼 LINK SPACE의 힘<br>방문자들이 남긴 이야기" data-en="What makes LINK SPACE special<br>in our visitors’ words">모임을 바꾼 LINK SPACE의 힘<br>방문자들이 남긴 이야기</h2></div>
+    <a class="review-source" href="https://map.naver.com/p/entry/place/2015335166?placePath=%2Freview%2Fvisitor" target="_blank" rel="noopener noreferrer"><span data-ko="네이버 방문자 리뷰 38개 전체 보기 ↗" data-en="See all 38 Naver reviews ↗">네이버 방문자 리뷰 38개 전체 보기 ↗</span></a>
+  </div>
+  <div class="review-carousel">
+    <button class="review-arrow" id="review-prev" type="button" aria-label="이전 리뷰">‹</button>
+    <div class="review-viewport"><div class="review-track" id="review-track" aria-live="off"></div></div>
+    <button class="review-arrow" id="review-next" type="button" aria-label="다음 리뷰">›</button>
+  </div>
+  <div class="review-caption"><span data-ko="네이버 플레이스 리뷰를 요약해 소개합니다. 카드를 누르면 요약과 대표 사진을 볼 수 있습니다." data-en="Highlights are paraphrased from Naver Place reviews. Select a card to view its summary and photo.">네이버 플레이스 리뷰를 요약해 소개합니다. 카드를 누르면 요약과 대표 사진을 볼 수 있습니다.</span><span id="review-page">01 / 10</span></div>
 </section>
+<div class="review-modal" id="review-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+  <div class="review-modal-box"><button class="review-close" type="button" aria-label="닫기">×</button><div class="review-modal-media" id="review-modal-media"></div><div class="review-modal-copy"><span class="eb" id="review-modal-category">REVIEW</span><h2 id="review-modal-title"></h2><p id="review-modal-text"></p><a class="more" href="https://map.naver.com/p/entry/place/2015335166?placePath=%2Freview%2Fvisitor" target="_blank" rel="noopener noreferrer" data-ko="네이버 원문과 사진 보기 ↗" data-en="View original review and photos ↗">네이버 원문과 사진 보기 ↗</a></div></div>
+</div>
 
 <section class="map in" id="map">
   <span class="eb">Contact</span>
@@ -250,7 +334,7 @@ body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var
 </section>
 </main>
 
-<footer class="ft"><div class="logo">LINK SPACE</div><nav><a href="#" data-privacy-open>개인정보 처리 안내</a><a href="#price">이용 요금</a></nav><p>이 페이지는 수업 실습용 페이지입니다. 실제 판매·결제는 이루어지지 않으며, 표기된 수치·후기는 예시입니다.</p></footer>
+<footer class="ft"><div class="logo">LINK SPACE</div><nav><a href="#" data-privacy-open>개인정보 처리 안내</a><a href="#price">이용 요금</a></nav><p>이용 요금은 LINK SPACE 안내 기준이며, 이용 후기는 네이버 플레이스 방문자 리뷰를 요약해 소개합니다. <a href="https://map.naver.com/p/entry/place/2015335166?placePath=%2Freview%2Fvisitor" target="_blank" rel="noopener noreferrer">출처: 네이버 플레이스</a></p></footer>
 <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
   <div class="modal-box">
     <span class="badge">개인정보 미수집 · 즉시 파기</span>
@@ -267,5 +351,59 @@ body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var
     </div>
   </div>
 </div><script src="assets/privacy.js"></script>
+<script>
+(function(){
+  const navReviews="https://map.naver.com/p/entry/place/2015335166?placePath=%2Freview%2Fvisitor";
+  const reviews=[
+    {cat:"PARTY",title:{ko:"편안한 좌석과 세심한 응대",en:"Comfort and thoughtful hosting"},text:{ko:"분리된 화장실, 편한 좌석과 소파, 모임에 필요한 비품까지 갖춰져 있어 편하게 이용했다는 후기입니다.",en:"A visitor highlights the separate restrooms, comfortable seating, useful supplies, and welcoming host."},img:""},
+    {cat:"BIRTHDAY",title:{ko:"기억에 남는 생일 파티",en:"A memorable birthday party"},text:{ko:"생일 모임을 즐겁게 마쳤고 호스트의 응대가 좋았다는 후기입니다.",en:"A guest says the birthday gathering was a success and appreciates the host."},img:"https://pup-review-phinf.pstatic.net/MjAyNjEwMTZfNTUg/MDAxNzkyMTM1NTgzMDk5.V3UuQxsebf7YU8jSv7MIRdhUpWT4BcZ8Ns1PvBNQA8Mg.pccbPV4pFM2kvawYOUaaRmjuMJZ81SdJPOcGvX8a4KAg.JPEG/1792135445949.heif.jpg?type=w1500_60_sharpen"},
+    {cat:"REPEAT VISIT",title:{ko:"다시 찾게 되는 파티룸",en:"A place worth returning to"},text:{ko:"샤워 시설과 휴식 공간, 노래방·스크린·게임용 PC 등 다양한 시설을 이용한 재방문 후기입니다.",en:"A repeat visitor mentions the shower and lounge areas, karaoke, screen, and gaming PCs."},img:"https://pup-review-phinf.pstatic.net/MjAyNjA5MTRfMTMx/MDAxNzg5Mzg2NzMyMDI1.L1AfEAHWAwyl8-VNqj2m7aS7fhOcGqwOsDfi2fNF8skg.-7j-9WH64C5SeguyrktVOHH9TAReYwEntMsN-mu6VM0g.JPEG/A75E4E0E-85F8-4DE3-B243-F3E0040438F9.jpeg?type=w1500_60_sharpen"},
+    {cat:"GROUP",title:{ko:"여럿이 모여도 여유롭게",en:"Room for the whole group"},text:{ko:"20명 모임에서 넉넉한 자리와 편한 테이블, 조명, 준비된 식기류가 만족스러웠다는 후기입니다.",en:"A group of 20 appreciated the roomy layout, tables, lighting, and stocked tableware."},img:""},
+    {cat:"GATHERING",title:{ko:"실내에 있는 분리 화장실",en:"Convenient in-room facilities"},text:{ko:"단체 이용에 편리한 시설과 친절한 안내가 좋았다는 방문 후기입니다.",en:"A group visitor appreciated the convenient separate restrooms and helpful hosting."},img:""},
+    {cat:"CLEAN SPACE",title:{ko:"넓고 쾌적한 공간",en:"A spacious, well-kept space"},text:{ko:"공간이 넓고 깔끔하게 관리되어 있어 편안하게 머물렀다는 후기입니다.",en:"A visitor describes a spacious, tidy venue that felt comfortable to use."},img:""},
+    {cat:"CLUB MEETING",title:{ko:"동아리 모임으로 재방문",en:"A club returns for another meetup"},text:{ko:"노래방, 프로젝터, 보드게임과 휴식 공간을 갖춘 점을 좋게 평가한 재방문 후기입니다.",en:"A returning club guest liked the karaoke, projector, board games, and relaxation area."},img:"https://pup-review-phinf.pstatic.net/MjAyNjA4MjNfMjgg/MDAxNzg3NDg2MzY4NDgz.p6r-Gq7XFfpdfQdjHMbfEyz67KOiQ-xkXlba5CeTBfsg.0bMB6tb5Sg-DK1YE9kZLcIK1wQc61fD8reTP5gftYSQg.JPEG/1000047390.jpg.jpg?type=w1500_60_sharpen"},
+    {cat:"SEMINAR",title:{ko:"세미나에서 뒤풀이까지",en:"From seminar to gathering"},text:{ko:"테이블 배치를 바꿔 세미나와 단합회를 이어서 진행할 수 있어 좋았다는 후기입니다.",en:"A group liked being able to move from a seminar setup to a casual gathering in the same room."},img:"https://pup-review-phinf.pstatic.net/MjAyNjA4MzBfMTk5/MDAxNzg4MDk4Mjc0ODQ1.yhz1QmWRfjH_8ODVK1f_rjtqhHTnCLZuFlcqXqa43eIg.Tbxj2wZaMI24QPZ6Q32sZvcLYAduQQ-2jt910cu0fwIg.JPEG/1788098147967.jpg.jpg?type=w1500_60_sharpen"},
+    {cat:"ALL NIGHT",title:{ko:"밤새 즐길 수 있는 시설",en:"Activities for an all-night stay"},text:{ko:"휴식 공간과 샤워 시설, 프로젝터·노래방·보드게임 등이 있어 밤 시간 모임이 즐거웠다는 후기입니다.",en:"A guest enjoyed the lounge, shower, projector, karaoke, and games during an overnight gathering."},img:"https://pup-review-phinf.pstatic.net/MjAyNjA4MTJfNSAg/MDAxNzg2NTIzODkzODc1.zrHcrIvgreTtGt2wWLWX3tu5rd6C0BrRflCDbVZeCycg.QgShzp_GlAsYhar9Ycst0WPJ5KkJdqYmBCsD1dAuNnog.JPEG/DA19380B-52EE-4792-BAB2-FC064FDE6D3D.jpeg?type=w1500_60_sharpen"},
+    {cat:"FAMILY PARTY",title:{ko:"가족과 함께한 첫돌",en:"A first-birthday celebration"},text:{ko:"넓고 깨끗한 공간에서 가족과 편하게 첫돌을 축하했고 친절한 안내가 도움이 되었다는 후기입니다.",en:"A family celebrated a first birthday in a spacious, clean venue and appreciated the helpful service."},img:"https://pup-review-phinf.pstatic.net/MjAyNjA4MDdfMjMz/MDAxNzg2MDg2NTgzNDc2.B0wec77iKsIXC1H3438kT1jqJmuBQy3PnPH5JuosO6Ug.oZJtbscuGcSkFqCAiePAQN34KGQkc8F9XxrIx4BdMEsg.JPEG/1000039748.heic.jpg?type=w1500_60_sharpen"}
+  ];
+  let lang="ko",timer=null;
+  const track=document.getElementById("review-track"), page=document.getElementById("review-page"), modal=document.getElementById("review-modal");
+  if(!track)return;
+  function render(){
+    document.documentElement.lang=lang;
+    document.querySelectorAll("[data-ko][data-en]").forEach(el=>{const value=el.dataset[lang];if(value!==undefined)el.innerHTML=value;});
+    const toggle=document.getElementById("lang-toggle");if(toggle){toggle.textContent=lang==="ko"?"ENG":"KR";toggle.setAttribute("aria-label",lang==="ko"?"Switch to English":"한국어로 변경");}
+    track.innerHTML=reviews.map((r,i)=>'<button class="review-card" type="button" data-review="'+i+'" aria-label="'+(lang==="ko"?r.title.ko:r.title.en)+'"><div class="review-thumb '+(r.img?"":"no-photo")+'">'+(r.img?'<img loading="lazy" src="'+r.img+'" alt="네이버 플레이스 이용 후기 대표 사진">':'LINK SPACE')+'</div><div class="review-card-copy"><em>REVIEW</em><h3>'+(lang==="ko"?r.title.ko:r.title.en)+'</h3><p>'+(lang==="ko"?r.text.ko:r.text.en)+'</p></div></button>').join("");
+    updatePage();
+  }
+  function visibleCount(){return matchMedia("(max-width:700px)").matches?2:matchMedia("(max-width:980px)").matches?3:4}
+  function updatePage(){if(!page)return;const first=track.querySelector(".review-card");const step=first?first.getBoundingClientRect().width+16:1;const idx=Math.round(track.scrollLeft/step)+1;page.textContent=String(Math.min(idx,reviews.length)).padStart(2,"0")+" / "+String(reviews.length).padStart(2,"0");}
+  function move(dir){const first=track.querySelector(".review-card");if(!first)return;const step=first.getBoundingClientRect().width+16;const end=track.scrollWidth-track.clientWidth;if(dir>0&&track.scrollLeft+step>=end-3)track.scrollTo({left:0,behavior:"smooth"});else if(dir<0&&track.scrollLeft<=3)track.scrollTo({left:end,behavior:"smooth"});else track.scrollBy({left:dir*step,behavior:"smooth"}); }
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  function start(){stop();timer=setInterval(()=>move(1),5000)}
+  function openReview(i){
+    const r=reviews[i], image=document.getElementById("review-modal-media");
+    image.className="review-modal-media"+(r.img?"":" no-photo");
+    image.innerHTML=r.img?'<img src="'+r.img+'" alt="네이버 플레이스 이용 후기 대표 사진">':"LINK SPACE";
+    document.getElementById("review-modal-category").textContent=r.cat;
+    document.getElementById("review-modal-title").textContent=lang==="ko"?r.title.ko:r.title.en;
+    document.getElementById("review-modal-text").textContent=lang==="ko"?r.text.ko:r.text.en;
+    modal.classList.add("open");modal.setAttribute("aria-hidden","false");stop();
+  }
+  track.addEventListener("click",e=>{const card=e.target.closest("[data-review]");if(card)openReview(Number(card.dataset.review));});
+  document.getElementById("review-prev").addEventListener("click",()=>{move(-1);start()});
+  document.getElementById("review-next").addEventListener("click",()=>{move(1);start()});
+  track.addEventListener("scroll",updatePage,{passive:true});
+  track.addEventListener("mouseenter",stop);track.addEventListener("mouseleave",start);
+  track.addEventListener("focusin",stop);track.addEventListener("focusout",start);
+  function close(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");start()}
+  modal.querySelector(".review-close").addEventListener("click",close);
+  modal.addEventListener("click",e=>{if(e.target===modal)close()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))close()});
+  const toggle=document.getElementById("lang-toggle");if(toggle)toggle.addEventListener("click",()=>{lang=lang==="ko"?"en":"ko";render();});
+  render();start();
+  window.addEventListener("resize",updatePage);
+})();
+</script>
 </body>
 </html>

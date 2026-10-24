@@ -1,9 +1,3 @@
 User-agent: *
-Allow: /
-Disallow: /result.html
-
-# AI 검색 크롤러 허용 예시 (Day 29)
-# User-agent: GPTBot
-# Allow: /
-
-Sitemap: https://YOUR-GITHUB-ID.github.io/sitemap.xml
+Allow: /LINK/
+Sitemap: https://diana02856-coder.github.io/LINK/sitemap.xml

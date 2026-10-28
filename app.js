@@ -92,3 +92,47 @@ document.querySelectorAll('[data-video-play],[data-instagram-play]').forEach(but
  frame.title=id?button.getAttribute('aria-label'):'Instagram · 배우 김태진';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';
  button.hidden=true;host.append(frame);activeFilmingFrame=frame;
 }));
+
+// GA4: record explicit media and social shortcut clicks.
+(function () {
+  function sendEvent(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    try {
+      window.gtag('event', name, Object.assign({
+        send_to: 'G-KL7ZYPRS4D',
+        venue_id: 'link_anam',
+        site_language: document.documentElement.lang === 'en' ? 'en' : 'ko'
+      }, params));
+    } catch (_) {
+      // Analytics must not interrupt playback or navigation.
+    }
+  }
+
+  document.querySelectorAll('[data-video-play],[data-instagram-play]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const host = button.closest('.filming-player');
+      if (!host) return;
+      sendEvent('media_embed_open', {
+        media_platform: host.dataset.videoId ? 'youtube' : 'instagram',
+        content_id: host.dataset.videoId || host.dataset.instagramPost,
+        placement: 'filming'
+      });
+    });
+  });
+
+  document.querySelectorAll('.social-shortcuts a').forEach(function (link) {
+    const platforms = {
+      'www.instagram.com': 'instagram',
+      'www.youtube.com': 'youtube',
+      'blog.naver.com': 'naver_blog'
+    };
+    const platform = platforms[new URL(link.href).hostname];
+    if (!platform) return;
+    link.addEventListener('click', function () {
+      sendEvent('social_click', {
+        social_platform: platform,
+        placement: 'social_shortcuts'
+      });
+    });
+  });
+})();

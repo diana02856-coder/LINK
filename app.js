@@ -103,6 +103,25 @@ document.querySelectorAll('[data-video-play],[data-instagram-play]').forEach(but
         venue_id: 'link_anam',
         site_language: document.documentElement.lang === 'en' ? 'en' : 'ko'
       }, params));
+      if (name !== 'page_view' && !/scroll/i.test(name)) {
+        const metaEvents = {
+          generate_lead: 'Lead',
+          sign_up: 'CompleteRegistration',
+          contact_click: 'Contact',
+          view_item: 'ViewContent',
+          add_to_cart: 'AddToCart',
+          begin_checkout: 'InitiateCheckout',
+          purchase: 'Purchase',
+          search: 'Search'
+        };
+        if (name === 'purchase') {
+          if (window.fbq) fbq('track', 'Purchase', { value: params.value, currency: 'KRW' });
+        } else if (metaEvents[name]) {
+          if (window.fbq) fbq('track', metaEvents[name]);
+        } else {
+          if (window.fbq) fbq('trackCustom', name);
+        }
+      }
     } catch (_) {
       // Analytics must not interrupt playback or navigation.
     }
